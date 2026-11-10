@@ -1,0 +1,918 @@
+@font-face {
+  font-family: Pricedown;
+  src: url("../fonts/Pricedown.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Mission Passed brand, positioning and responsive refinements. */
+.hero {
+  background-image: url("../img/hero/hero.webp?v=aa1-v1");
+  background-size: 100% 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  aspect-ratio: 1612 / 976;
+}
+.hero__container {
+  min-height: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: clamp(1.25rem, 2.5vw, 2.25rem);
+  padding-top: clamp(5.5rem, 8vw, 7.5rem);
+  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+  box-sizing: border-box;
+}
+.hero__title {
+  width: min(42vw, 560px);
+  max-width: 560px;
+  margin: 0 auto;
+  align-self: center;
+  transform: none !important;
+  -webkit-transform: none !important;
+}
+.hero__title img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  transform: none !important;
+  -webkit-transform: none !important;
+}
+.hero__actions {
+  align-self: center;
+  width: auto;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: clamp(0.75rem, 1.4vw, 1.15rem);
+  column-gap: clamp(0.75rem, 1.4vw, 1.15rem);
+  margin: 0 auto;
+}
+.hero__button {
+  left: 0;
+  width: clamp(11.5rem, 16vw, 16rem);
+  height: clamp(3.4rem, 4.2vw, 4.5rem);
+}
+.hero__button span {
+  font-size: clamp(1.05rem, 1.35vw, 1.55rem);
+}
+.hero__socail {
+  justify-content: center;
+  column-gap: clamp(0.65rem, 1.1vw, 0.9rem);
+}
+.hero__socail-item {
+  width: clamp(3.25rem, 4vw, 4.25rem);
+}
+/* Join / footer CTA band: full video frame (no top/bottom crop), logo + BUY overlay */
+.join {
+  position: relative;
+  overflow: hidden;
+  background: #090609;
+  background-image: none;
+  /* Override style.min fixed heights so the 16:9 video sets the section size */
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: auto;
+}
+.join__bg-video {
+  position: relative;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  vertical-align: top;
+}
+.join__container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: clamp(1.25rem, 3vw, 2.5rem);
+}
+.join__grid {
+  background-image: none;
+  aspect-ratio: auto;
+  width: min(100%, 36rem);
+  max-width: 36rem;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.25rem, 3.5vw, 2.25rem);
+  animation: none;
+  -webkit-animation: none;
+}
+.join__logo {
+  display: block;
+  width: min(88%, 28rem);
+  height: auto;
+  margin: 0 auto;
+}
+.join__button {
+  position: relative;
+  top: 0;
+  flex-shrink: 0;
+  width: clamp(184px, 16vw, 238px);
+  height: clamp(52px, 4.4vw, 64px);
+  z-index: 2;
+}
+.join__button span {
+  font-size: clamp(18px, 1.6vw, 24px);
+}
+/* Footer — slim black bar: logo | nav | socials (ref layout) */
+.footer__top {
+  padding-top: clamp(1.1rem, 0.7rem + 1.2vw, 1.75rem);
+  padding-bottom: clamp(1.1rem, 0.7rem + 1.2vw, 1.75rem);
+  background-color: #000;
+}
+.footer__top-body {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: clamp(1rem, 2vw, 2.5rem);
+  row-gap: 0;
+}
+.footer__logo {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  width: clamp(4.5rem, 3rem + 5vw, 7.25rem);
+  -webkit-transform: none;
+  transform: none;
+  opacity: 1;
+  visibility: visible;
+}
+.footer__logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.footer__top-menu {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  min-width: 0;
+  column-gap: 0;
+  row-gap: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.55);
+  border-right: 1px solid rgba(255, 255, 255, 0.55);
+  padding-inline: clamp(0.75rem, 0.35rem + 1.5vw, 1.75rem);
+}
+.footer__top-menu-item {
+  position: relative;
+  color: #fff;
+  font-size: clamp(0.78rem, 0.55rem + 0.85vw, 1.15rem);
+  font-weight: 900;
+  line-height: 1.2;
+  text-transform: lowercase;
+  white-space: nowrap;
+  padding-inline: clamp(0.55rem, 0.3rem + 0.9vw, 1.15rem);
+}
+.footer__top-menu-item + .footer__top-menu-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 18%;
+  bottom: 18%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.55);
+}
+.footer__top-menu-item:hover {
+  color: #e83ab8;
+}
+.footer__top-body._watcher-view .footer__top-menu-item:nth-child(5) {
+  -webkit-animation: to-right 0.3s ease 0.1s forwards;
+  animation: to-right 0.3s ease 0.1s forwards;
+}
+.footer__top-social {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: clamp(0.85rem, 0.5rem + 1vw, 1.35rem);
+  row-gap: 0;
+}
+.footer__top-social-item {
+  width: clamp(1.35rem, 1rem + 1.1vw, 1.85rem);
+  height: clamp(1.35rem, 1rem + 1.1vw, 1.85rem);
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  color: #fff;
+}
+.footer__top-social-item svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.footer__top-social-item:hover {
+  border: 0;
+  color: #e83ab8;
+}
+.footer__top-social-item:hover img,
+.footer__top-social-item:hover svg {
+  scale: 1;
+}
+.footer__bottom {
+  display: none;
+}
+@media (max-width: 61.99875em) {
+  .footer__top-body {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 1.1rem;
+  }
+  .footer__logo {
+    order: 1;
+    width: clamp(4.25rem, 22vw, 5.75rem);
+  }
+  .footer__top-social {
+    order: 2;
+    justify-content: center;
+  }
+  .footer__top-menu {
+    order: 3;
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 0.55rem;
+    border-left: 0;
+    border-right: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    padding-top: 0.9rem;
+    padding-inline: 0;
+  }
+}
+.tokenomics__content-item > span:nth-child(2):not(.pink) {
+  font-size: clamp(22px, 2.4vw, 36px);
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+.tokenomics__content-ca button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+@media (max-width: 61.99875em) {
+  .hero {
+    background-image: url("../img/hero/hero-mobile.webp?v=gta-opt-1");
+    background-size: 100% 100%;
+    background-position: center;
+    aspect-ratio: 941 / 1672;
+  }
+  .hero__container {
+    min-height: 0;
+    height: auto;
+    justify-content: flex-start;
+    row-gap: clamp(1.25rem, 8vw, 3.5rem);
+    padding-top: 0;
+    padding-bottom: clamp(1.5rem, 5vw, 2.5rem);
+  }
+  .hero__title {
+    align-self: center;
+    width: 72%;
+    max-width: 380px;
+    margin-top: clamp(56px, 14vw, 76px);
+  }
+  .hero__title img {
+    transform: none !important;
+  }
+  .hero__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+  }
+  .hero__button {
+    width: clamp(160px, 40vw, 220px);
+    height: clamp(44px, 11vw, 56px);
+    left: 0;
+  }
+  .hero__button span {
+    font-size: clamp(16px, 4.2vw, 21px);
+  }
+  .hero__socail {
+    gap: 12px;
+  }
+  .hero__socail-item {
+    width: clamp(48px, 12vw, 60px);
+  }
+  .join__grid {
+    width: min(92%, 18rem);
+    gap: 0.85rem;
+  }
+  .join__logo {
+    width: min(72%, 14rem);
+  }
+  .join__button {
+    top: 0;
+    width: clamp(150px, 42vw, 200px);
+    height: clamp(44px, 11vw, 56px);
+  }
+  .join__container {
+    padding-block: clamp(0.75rem, 3vw, 1.5rem);
+  }
+}
+@media (max-width: 22rem) {
+  html,
+  body {
+    min-width: 0;
+  }
+  .header__logo {
+    width: auto;
+    min-width: 0;
+    height: 48px;
+    flex-shrink: 0;
+  }
+  .header__right {
+    column-gap: 10px;
+  }
+  .header__button {
+    width: 118px;
+  }
+  .header__button span {
+    font-size: 16px;
+  }
+  .hero__button {
+    width: 150px;
+  }
+  .hero__actions,
+  .hero__socail {
+    gap: 10px;
+  }
+  .hero__socail-item {
+    width: 46px;
+  }
+}
+
+/* Contain Lucia inside the angled comic panel, with no white page showing. */
+.about {
+  background-color: #352342;
+}
+.about__box {
+  align-items: stretch;
+}
+.about__image {
+  isolation: isolate;
+  width: 52%;
+  height: auto;
+  aspect-ratio: 1040 / 959;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 5.7%, 100% 96.2%, 0 100%);
+  background: linear-gradient(
+      180deg,
+      rgba(244, 128, 190, 0.28),
+      rgba(102, 41, 133, 0.16)
+    ),
+    url("../img/join/bg.webp?v=gta-opt-1") center / cover no-repeat;
+}
+.about__image::before,
+.about__image::after {
+  z-index: 3;
+}
+.about__image img {
+  position: absolute;
+  z-index: 1;
+  inset: 9% 5% 0;
+  display: block;
+  width: 90%;
+  height: 91%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+@media (max-width: 61.99875em) {
+  .about__image {
+    flex: 0 0 auto;
+    width: 100%;
+    margin-top: 0;
+  }
+}
+@media (min-width: 61.99875em) {
+  .tokenomics__body {
+    padding-right: 15px;
+  }
+  .tokenomics__image {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+/* Keep tokenomics media frame same as the old still (842×880) */
+.tokenomics__image {
+  overflow: hidden;
+}
+.tokenomics__video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 842 / 880;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Skewed equal-size meme wall (same vibe as trencher / deadguy). */
+.stickers__container {
+  width: min(100% - 2rem, 74.375rem);
+}
+.stickers__title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.4rem;
+  transform: rotate(-1.5deg);
+}
+.stickers__title img {
+  width: min(100%, 28rem);
+  height: auto;
+  filter: drop-shadow(0.18rem 0.28rem 0 #090609);
+}
+.artwork-themes {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3.25rem);
+  margin-bottom: clamp(32px, 4vw, 56px);
+}
+.artwork-theme__head {
+  margin: 0 0 1.1rem;
+  text-align: center;
+}
+.artwork-theme__title {
+  margin: 0;
+  color: #fff;
+  font-family: Pricedown, "HK Grotesk Wide", sans-serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-shadow: -2px -2px 0 #090609, 2px -2px 0 #090609, -2px 2px 0 #090609,
+    2px 2px 0 #090609, 3px 4px 0 #090609;
+}
+.artwork-theme__sub {
+  margin: 0.45rem 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: "HK Grotesk Wide", sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.45vw, 1.15rem);
+  text-shadow: 1px 1px 0 #090609;
+}
+.artwork-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.35rem;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.75rem 0.25rem 0.5rem;
+}
+.artwork-grid__item {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0.5rem 0.5rem 0.7rem;
+  min-width: 0;
+  overflow: visible;
+  border: 0.125rem solid #090609;
+  border-radius: 0;
+  background: #f6e9ff;
+  box-shadow: 0.18rem 0.28rem 0 #090609;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.artwork-grid__item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  border: 0.1rem solid #090609;
+  background: #1a0f24;
+  pointer-events: none;
+}
+.artwork-grid__item:nth-child(6n + 1) {
+  transform: rotate(-1.8deg);
+}
+.artwork-grid__item:nth-child(6n + 2) {
+  transform: rotate(1.3deg);
+}
+.artwork-grid__item:nth-child(6n + 3) {
+  transform: rotate(-0.7deg);
+}
+.artwork-grid__item:nth-child(6n + 4) {
+  transform: rotate(1.9deg);
+}
+.artwork-grid__item:nth-child(6n + 5) {
+  transform: rotate(-1.4deg);
+}
+.artwork-grid__item:nth-child(6n + 6) {
+  transform: rotate(0.8deg);
+}
+.artwork-grid__item:focus-visible {
+  outline: 3px solid #ffda27;
+  outline-offset: 5px;
+}
+@media (hover: hover) {
+  .artwork-grid__item:hover,
+  .artwork-grid__item:focus-visible {
+    position: relative;
+    z-index: 2;
+    transform: rotate(0deg) translateY(-0.35rem);
+    box-shadow: 0.32rem 0.42rem 0 #090609;
+  }
+}
+@media (max-width: 61.99875em) {
+  .artwork-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+@media (max-width: 29.99875em) {
+  .artwork-grid {
+    grid-template-columns: 1fr;
+  }
+  .artwork-grid__item,
+  .artwork-grid__item:nth-child(n) {
+    transform: none;
+  }
+}
+.stickers__button span {
+  font-size: clamp(16px, 1.8vw, 26px);
+  white-space: nowrap;
+}
+
+/* Keep the full jagged top/bottom fringe on the $GTA ticker visible.
+   Taller band so the cream ticker reads as large as the old purple one. */
+.line {
+  overflow: visible;
+  z-index: 4;
+  height: clamp(14rem, 8rem + 28vw, 34rem);
+}
+.line::before {
+  top: -3%;
+  height: 106%;
+  transform: none;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* Keep logo marks inside the cream band — not clipped by the fringe. */
+.line__row,
+.line__item {
+  overflow: visible;
+}
+.line__item img {
+  display: block;
+  width: 72%;
+  height: auto;
+  margin-inline: auto;
+  transform: translateY(-4%) scale(0.88);
+  transform-origin: center center;
+}
+.page__tokenomics {
+  position: relative;
+  z-index: 1;
+  margin-top: -2.5%;
+}
+
+/* Optimized asset formats */
+.line::before {
+  background-image: url("../img/line/bg.webp?v=gta-opt-1");
+}
+.stickers {
+  background-image: url("../img/stickers/bg.webp?v=opt-v3");
+}
+.tokenomics {
+  background-image: url("../img/tokenomics/bg.webp?v=heli-opt-v1");
+}
+.tokenomics__container {
+  justify-content: flex-start;
+}
+.tokenomics__title {
+  width: min(52%, 720px);
+  align-self: flex-start;
+  margin-right: auto;
+}
+@media (max-width: 61.99875em) {
+  .tokenomics__title {
+    width: 78%;
+  }
+}
+
+/* Banana Heist tokenomics card */
+.tokenomics__content {
+  background-color: #faf3e3;
+  border-color: #090609;
+  box-shadow: 6px 8px 0 0 #090609;
+}
+.tokenomics__content::before {
+  background-color: #faf3e3;
+}
+.tokenomics__body-top {
+  background-color: #faf3e3;
+  border-color: #090609;
+}
+.tokenomics__body-bottom,
+.tokenomics__body-bottom::after {
+  background-color: #090609;
+}
+.tokenomics__content-decor span:nth-child(1),
+.tokenomics__content-decor span:nth-child(2) {
+  background-color: rgba(232, 58, 184, 0.1);
+}
+.tokenomics__content-item span:nth-child(1) {
+  color: #3a2a22;
+  opacity: 0.78;
+}
+.tokenomics__content-item span:nth-child(2) {
+  color: #090609;
+}
+.tokenomics__content-item span:nth-child(2).pink {
+  color: #e83ab8;
+  text-shadow: 2px 2px 0 #090609;
+}
+.tokenomics__content-ca {
+  background: #fff6e8;
+  border-color: #090609;
+  box-shadow: 3px 3px 0 0 #090609;
+}
+.tokenomics__content-ca:has(button:hover) span {
+  color: #e83ab8;
+}
+.tokenomics__content-ca button:hover svg path {
+  stroke: #e83ab8;
+}
+.tokenomics__content-ca button:hover svg path:nth-child(2) {
+  fill: #e83ab8;
+}
+.about__image {
+  background-image: linear-gradient(
+      180deg,
+      rgba(244, 128, 190, 0.28),
+      rgba(102, 41, 133, 0.16)
+    ),
+    url("../img/join/bg.webp?v=gta-opt-1");
+}
+
+/* Section 2 text panel — jagged paper backgrounds */
+.about__content::before {
+  background: url("../img/about/bg.webp?v=gta-opt-1") left / contain no-repeat;
+}
+@media (max-width: 61.99875em) {
+  .about__content::before {
+    background: url("../img/about/bg-mob.webp?v=gta-opt-1") top / cover
+      no-repeat;
+  }
+}
+
+.tokenomics__content-ca button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+.tokenomics__content-ca button.copy-ca-btn:not([disabled]) {
+  cursor: pointer;
+  opacity: 1;
+}
+.tokenomics__content-ca span {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.how__item-body code {
+  font-size: 0.78em;
+  word-break: break-all;
+}
+
+/* Keep "How to buy" title readable — less overlap from character art. */
+.how__left {
+  padding-top: clamp(7.5rem, 5rem + 6vw, 10rem);
+  overflow: visible;
+}
+.how__title {
+  position: relative;
+  z-index: 5;
+  margin-bottom: clamp(1.25rem, 0.5rem + 2vw, 2.5rem);
+}
+.how__image {
+  z-index: 3;
+  margin-top: clamp(-4.5rem, -1.5rem + -3vw, -2rem);
+}
+.how__image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 61.99875em) {
+  .how__left {
+    padding-top: clamp(5rem, 3rem + 6vw, 7rem);
+  }
+  .how__image {
+    margin-top: clamp(-3rem, -1rem + -2vw, -1.25rem);
+  }
+}
+
+/* hero title art — mobile */
+@media (max-width: 61.99875em) {
+  .hero__title {
+    width: min(72vw, 22rem);
+    max-width: 380px;
+    margin-top: clamp(48px, 12vw, 72px);
+  }
+}
+
+/* Top navbar — subtle L→R violet like GTA VI menu sky */
+.header {
+  padding-top: 0;
+  background: linear-gradient(90deg, #a86aad 0%, #c77bb8 48%, #d99a9e 100%);
+  border-bottom: none;
+  box-shadow: none;
+}
+.header::after {
+  content: "";
+  position: absolute;
+  left: -1%;
+  bottom: 0;
+  width: 102%;
+  height: 4px;
+  background: #090609;
+  transform: skewY(-0.45deg);
+  transform-origin: left center;
+  pointer-events: none;
+}
+.header__container {
+  min-height: clamp(88px, 10.5vw, 118px);
+  padding-block: 1rem;
+}
+.header__logo {
+  width: auto;
+  min-width: 0;
+  height: clamp(54px, 6.5vw, 78px);
+  aspect-ratio: auto;
+  border-radius: 0;
+  overflow: visible;
+  border: 0;
+  box-shadow: none;
+}
+.header__logo img {
+  width: auto;
+  height: 100%;
+  max-width: min(290px, 42vw);
+  border-radius: 0;
+  object-fit: contain;
+  display: block;
+}
+.header__menu {
+  padding: 0;
+}
+.header__menu::before {
+  display: none;
+  opacity: 0;
+}
+.menu__link {
+  font-family: Pricedown, "HK Grotesk Wide", sans-serif;
+  color: rgba(255, 255, 255, 0.88);
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  font-size: clamp(1.35rem, 2.1vw, 1.85rem);
+}
+.menu__link::before {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+.menu__link::after,
+.menu__link._navigator-active,
+.menu__link:hover {
+  color: #fff;
+}
+.menu__link::after,
+.menu__link._navigator-active::after,
+.menu__link:hover::after {
+  background-color: #fff;
+}
+.menu__link._navigator-active,
+.menu__link:hover {
+  opacity: 1;
+}
+.header__button {
+  border-radius: 0.55rem;
+  border: 3px solid #090609;
+  background: linear-gradient(180deg, #e83ab8 0%, #d63384 100%);
+  box-shadow: 3px 4px 0 0 #090609;
+  width: clamp(8rem, 12.5vw, 11rem);
+  height: clamp(2.9rem, 4.6vw, 3.65rem);
+}
+.header__button span {
+  font-family: Pricedown, "HK Grotesk Wide", sans-serif;
+  color: #fff;
+  font-size: clamp(1.15rem, 1.85vw, 1.5rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.header__button:hover {
+  transform: translate(2px, 3px);
+  box-shadow: 0 0 0 0 #090609;
+}
+.header__button:hover span {
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+@media (max-width: 61.99875em) {
+  .menu__body {
+    background: linear-gradient(90deg, #a86aad 0%, #c77bb8 48%, #d99a9e 100%);
+    border-color: #090609;
+  }
+  .menu__link {
+    color: rgba(255, 255, 255, 0.88);
+  }
+  .menu__link::before {
+    background-color: rgba(255, 255, 255, 0.35);
+  }
+  .header__logo {
+    height: 56px;
+    width: auto;
+    min-width: 0;
+  }
+}
+
+/* Match navbar button shape on all CTAs — keep each button's own colors */
+.button,
+.about__button,
+.hero__button,
+.join__button,
+.stickers__button {
+  border-radius: 0.55rem;
+  border: 3px solid #090609;
+  box-shadow: 3px 4px 0 0 #090609;
+}
+.button:hover,
+.about__button:hover,
+.hero__button:hover,
+.join__button:hover,
+.stickers__button:hover {
+  transform: translate(2px, 3px);
+  box-shadow: 0 0 0 0 #090609;
+}
+.button:hover span,
+.about__button:hover span,
+.hero__button:hover span,
+.join__button:hover span,
+.stickers__button:hover span {
+  letter-spacing: 0.04em;
+}
+
+/* All buy / download CTAs = same pink as top navbar */
+.header__button,
+.hero__button,
+.join__button,
+.stickers__button,
+.hero__button.button,
+.join__button.button,
+.stickers__button.button {
+  background: linear-gradient(180deg, #e83ab8 0%, #d63384 100%);
+  background-color: #d63384;
+  border-color: #090609;
+}
+.header__button span,
+.hero__button span,
+.join__button span,
+.stickers__button span {
+  font-family: Pricedown, "HK Grotesk Wide", sans-serif;
+  color: #fff;
+  font-weight: 400;
+}
+.header__button:hover span,
+.hero__button:hover span,
+.join__button:hover span,
+.stickers__button:hover span {
+  color: #fff;
+}
+
+/* Hero TG / X — same chunky CTA language as BUY buttons */
+.hero__socail-item {
+  border-radius: 0.55rem;
+  border: 3px solid #090609;
+  background-color: #090609;
+  box-shadow: 3px 4px 0 0 #090609;
+  overflow: hidden;
+}
+.hero__socail-item:hover {
+  transform: translate(2px, 3px);
+  box-shadow: 0 0 0 0 #090609;
+}
+.hero__socail-item:hover svg path {
+  fill: #d63384;
+}
